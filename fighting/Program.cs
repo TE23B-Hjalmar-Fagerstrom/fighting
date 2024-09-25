@@ -1,13 +1,17 @@
-﻿int hp1 = Random.Shared.Next(80, 101); 
+﻿spel();
+
+static void spel(){
+
+int hp1 = Random.Shared.Next(80, 101); 
 int hp2 = Random.Shared.Next(80, 101); 
 int runda = 1;
+//int godis = 10;
 
-Console.WriteLine("välkommen, döp första figther");
-string figther1 = Console.ReadLine();
-Console.WriteLine (" och den andra");
-string figther2 = Console.ReadLine();
-Console.WriteLine("för att starta och för att starta nästa runda trycker du enter!");
+Console.WriteLine("välkommen, för att starta och för att starta nästa runda trycker du enter!");
+string figther1 = "Pappa";
+string figther2 = "Mamma";
 Console.ReadLine();
+
 
 while (hp1 >= 0 && hp2 >= 0 ){
     Console.WriteLine($"Runda {runda}!");
@@ -16,10 +20,11 @@ while (hp1 >= 0 && hp2 >= 0 ){
     hp2 -= dmg1;
     hp1 -= dmg2;
     Console.WriteLine ($"{figther1} slog {figther2} för {dmg1} och hon har {hp2} hp kvar");
-    Console.WriteLine ($"Din mamma slog din pappa för {dmg2} och han har {hp1} hp kvar");
+    Console.WriteLine ($"{figther2} slog din {figther1} för {dmg2} och han har {hp1} hp kvar");
     runda ++;
     Console.ReadLine();
 }
+
 
 if (hp1 <= 1 && hp2 >= 1)
 {
@@ -36,8 +41,18 @@ if (hp1 <= 0 && hp2 <= 0)
     lika();
 }
 
-Console.ReadLine();
+Console.WriteLine("""
 
+
+vill du spela igen? J/N 
+""");
+string janej = Console.ReadLine();
+
+if (janej.ToLower() == "J")
+{
+    spel();
+}
+}
 
 
 static void WINST2()
